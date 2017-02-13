@@ -18,11 +18,8 @@ public class AGS4x234x {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Poblacion p1 = new Poblacion(3);
-        System.out.println();
-        Individuo mejor = p1.getMejor();
-        System.out.println();
-       
+        AlgoritmoGeneticoV1 ag = new AlgoritmoGeneticoV1(23, 23, 0.4);
+        ag.evolucionar();
     }
     
 }

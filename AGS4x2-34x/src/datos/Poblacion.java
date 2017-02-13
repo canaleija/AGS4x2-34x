@@ -7,6 +7,7 @@ package datos;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -17,6 +18,12 @@ public class Poblacion {
     private Individuo mejor;
     private LinkedList<Individuo> habitantes;
     private int num_habitantes;
+    
+    public Poblacion(){
+       this.mejor = new Individuo();
+       this.habitantes = new LinkedList<>();
+       this.num_habitantes = 0;
+    }
     
     public Poblacion(int num_habitantes){
         this.num_habitantes = num_habitantes;
@@ -61,6 +68,17 @@ public class Poblacion {
             }
        }
        return aux;    
+    }
+    
+    public Individuo obtenerAleatorio(){
+    
+        Random ran = new Random();
+        return new Individuo(this.habitantes.get(ran.nextInt(num_habitantes)));
+    }
+    
+    public void agregarHabitante(Individuo ind){
+       this.habitantes.add(new Individuo(ind));
+       this.num_habitantes++; 
     }
     
 }

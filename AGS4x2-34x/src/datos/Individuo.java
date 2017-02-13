@@ -32,6 +32,13 @@ public class Individuo {
        calcularFenotipo();
        calculaFitness();
     }
+
+    public Individuo(int[] genotipoResultante) 
+    {
+        this.genotipo = genotipoResultante;
+        calcularFenotipo();
+        calculaFitness();
+    }
     
     private void generarAlelosAleatorios(){
       Random ran = new Random();
