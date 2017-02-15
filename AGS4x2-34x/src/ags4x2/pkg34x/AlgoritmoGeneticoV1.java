@@ -35,16 +35,21 @@ public class AlgoritmoGeneticoV1 {
             // tenemos que iterar para construir la nueva generacion
             for(int i=0; i < this.tam_poblacion;i++){
                // proceso de seleccion de padre y madre
-                Individuo padre = this.poblacion.getMejor();
+                Individuo padre = this.poblacion.obtenerAleatorio();
                 Individuo madre = this.poblacion.obtenerAleatorio();
                // ejecutamos la cruza y obtenemos al hijo
                 Individuo hijo = cruzaMascaraAleatoria(padre,madre);
                // dependiendo de una prob. muta se cambia el hijo
-                // TODO: PROGRAMAR LA CRUZA
+               if (Math.random()<=this.prob_muta){
+                Herramientas.mutaGenAleatorio(hijo);
+               }
 // agrega el hijo a la nueva poblacion
                nuevaP.agregarHabitante(hijo);
             }
             // actualizamos la población 
+            this.poblacion = new Poblacion(nuevaP);
+            System.out.println(e+" - fitness de: "+this.poblacion.getMejor().getFitness());
+        
         }
         
     }

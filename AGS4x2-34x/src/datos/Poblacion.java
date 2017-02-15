@@ -30,6 +30,16 @@ public class Poblacion {
         generaPoblacionIncialAleatoria(num_habitantes);
     }
 
+    public Poblacion (Poblacion anterior){
+        this.num_habitantes = anterior.getNum_habitantes();
+        this.habitantes = new LinkedList<>();
+        // copiamos cada uno de los individuos 
+        for (Individuo aux: anterior.getHabitantes()){
+          this.habitantes.add(new Individuo(aux));
+        }
+    
+    }
+     
     private void generaPoblacionIncialAleatoria(int num_habitantes) {
       this.habitantes = new LinkedList<>();
       for (int x=0; x < num_habitantes;x++)

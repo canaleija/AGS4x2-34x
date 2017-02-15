@@ -16,7 +16,7 @@ public class Individuo {
     //  fitness
     public static final int NUM_GENES = 12;
     private int[]genotipo;
-    private int fitness;
+    private double fitness;
     private int fenotipo;
     
     // agregamos el constructor de genotipo aleatorio
@@ -71,8 +71,10 @@ public class Individuo {
     }
     
     private void calculaFitness(){
-     this.fitness = (4*(int)Math.pow(this.fenotipo,2))+(34*this.fenotipo);
-     
+     //this.fitness = (4*(int)Math.pow(this.fenotipo,2))+(34*this.fenotipo);
+     //this.fitness = this.fenotipo*(Math.cos(5.0));
+     this.fitness = this.fenotipo*(Math.cos(this.fenotipo));
+     //this.fitness = 5*(Math.cos(this.fenotipo));
     }
 
     /**
@@ -95,9 +97,12 @@ public class Individuo {
     /**
      * @return the fitness
      */
-    public int getFitness() {
+    public double getFitness() {
         return fitness;
     }
     
-    
+    public void ajustarDespuesDeMuta(){
+       calcularFenotipo();
+       calculaFitness();
+    }
 }

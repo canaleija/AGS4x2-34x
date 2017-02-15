@@ -21,5 +21,17 @@ public class Herramientas {
        }
        return mascara;
     }
+    public static void mutaGenAleatorio(Individuo ind){
+      // caculamos el gen aleatorio 
+      Random ran = new Random();
+      int pos = ran.nextInt(ind.getGenotipo().length);
+      if (ind.getGenotipo()[pos]==1){
+          ind.getGenotipo()[pos]=0;
+         
+      }else{
+         ind.getGenotipo()[pos]=1;
+      }
+      ind.ajustarDespuesDeMuta();
     
+    }
 }

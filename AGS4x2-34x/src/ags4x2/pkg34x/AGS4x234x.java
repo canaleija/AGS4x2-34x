@@ -18,7 +18,7 @@ public class AGS4x234x {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AlgoritmoGeneticoV1 ag = new AlgoritmoGeneticoV1(23, 23, 0.4);
+        AlgoritmoGeneticoV1 ag = new AlgoritmoGeneticoV1(100, 100, 0.1);
         ag.evolucionar();
     }
     
